@@ -1,6 +1,7 @@
 package com.personal.currencygifgiver;
 
 import lombok.Data;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,13 +21,12 @@ public class CurrencyExchangeGifController {
     private final ApiClientCurrency apiClientCurrency;
     private final ApiClientGif apiClientGif;
 
-    @GetMapping ("/money")         //@GetMapping — Обрабатывает get-запросы
+    @GetMapping ("/")         //@GetMapping — Обрабатывает get-запросы
     public ResponseEntity readCurrencyExchangeData () {
-        return ResponseEntity.ok(apiClientCurrency.getCurrency().getRates());
+        if (apiClientCurrency.getCurrency().getRates().getRub() >
+                apiClientCurrency.getYesterdayCurrency().getRates().getRub()) {
+            return ResponseEntity.ok(apiClientGif.getRichGifs().getData().getImages().getOriginal().getUrl());
+        } else
+            return ResponseEntity.ok(apiClientGif.getBrokeGifs().getData().getImages().getOriginal().getUrl());
 }
-
-    @GetMapping ("/gifs")
-    public ResponseEntity getGifs() {
-        return ResponseEntity.ok(apiClientGif.getRichGifs());
-    }
 }
