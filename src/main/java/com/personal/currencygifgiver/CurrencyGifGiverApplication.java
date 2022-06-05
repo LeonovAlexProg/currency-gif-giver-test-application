@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+import java.text.SimpleDateFormat;
+
 //Одну аннотацию @SpringBootApplication можно использовать для включения этих трех функций, а именно:
 //@EnableAutoConfiguration: включить механизм автоконфигурации Spring Boot
 //@ComponentScan: включить сканирование @Component для пакета, в котором находится приложение
