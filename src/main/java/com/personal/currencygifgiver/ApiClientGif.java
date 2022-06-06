@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface ApiClientGif {
 
     @RequestMapping(method = RequestMethod.GET,
-            value = "${gifurl.rich}")
+            value = "${gif.url.rich}")
     public Gifs getRichGifs();
 
     @RequestMapping(method = RequestMethod.GET,
-            value = "${gifurl.broke}")
+            value = "${gif.url.broke}")
     public Gifs getBrokeGifs();
 }

@@ -19,7 +19,7 @@ public interface ApiClientCurrency {
 
     //@RequestMapping используется для мапинга (связывания) с URL для всего класса или для конкретного метода обработчика.
     @RequestMapping(method = RequestMethod.GET,
-            value = "historical/" + "date" + ".json?app_id=f3f48132c09541b9b66b382c704b1412&symbols=${currency.code}")
+            value = "historical/${yesterday.date}.json?app_id=f3f48132c09541b9b66b382c704b1412&symbols=${currency.code}")
 //            value = "historical/2013-02-16.json?app_id=f3f48132c09541b9b66b382c704b1412&symbols=RUB")
     public CurrencyExchange getYesterdayCurrency();
 
